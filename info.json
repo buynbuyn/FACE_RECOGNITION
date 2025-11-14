@@ -1,0 +1,26 @@
+{
+  "Hoang_Huynh": {
+    "ten": "Nguyễn Hoàng Huynh",
+    "nam_sinh": 2005,
+    "gioi_tinh": "Nam",
+    "nganh": "CNTT",
+    "khoa": 2023,
+    "sdt": "0901234567"
+  },
+  "Huu_Kien": {
+    "ten": "Phạm Hữu Kiên",
+    "nam_sinh": 2005,
+    "gioi_tinh": "Nam",
+    "nganh": "CNTT",
+    "khoa": 2023,
+    "sdt": "0902345678"
+  },
+  "Minh_Vu": {
+    "ten": "Phùng Minh Vũ",
+    "nam_sinh": 2005,
+    "gioi_tinh": "Nam",
+    "nganh": "CNTT",
+    "khoa": 2023,
+    "sdt": "0903456789"
+  }
+}
