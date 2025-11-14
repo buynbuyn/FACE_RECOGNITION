@@ -1,0 +1,263 @@
+/* ========================================================================
+   GLOBAL STYLES
+   ========================================================================= */
+QWidget {
+    font-family: "Segoe UI", "Roboto", "Arial", sans-serif;
+    font-size: 10pt;
+    /* Màu nền chính (Dark Purple) */
+    background-color: #1E1B2E;
+    color: #364153; /* Màu chữ mặc định (cho nền trắng) */
+}
+
+/* ========================================================================
+   QGROUPBOX (Các tấm thẻ nền trắng)
+   ========================================================================= */
+QGroupBox {
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    border: none;
+    padding: 25px 20px 20px 20px;
+    margin: 10px;
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    padding-left: 30px;
+    padding-top: 20px;
+    color: #364153;
+    font-size: 13pt;
+    font-weight: bold;
+}
+
+/* ========================================================================
+   PANEL BÊN TRÁI (INPUTS)
+   ========================================================================= */
+QLabel {
+    color: #364153;
+    font-size: 10pt;
+    background-color: transparent;
+    padding-bottom: 5px;
+}
+
+QLabel#status_ready {
+    color: #00B894;
+    font-size: 10pt;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 0px;
+}
+
+QLabel#status_description {
+    color: #777777;
+    font-size: 9pt;
+    font-weight: normal;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+QLineEdit {
+    background-color: #FFFFFF;
+    border: 2px solid #E9D4FF;
+    border-radius: 10px;
+    color: #364153;
+    padding: 10px 15px;
+    font-size: 10pt;
+    min-height: 25px; /* Chiều cao tối thiểu */
+}
+
+QLineEdit::placeholder {
+    color: #AAAAAA;
+}
+
+QLineEdit:focus {
+    border: 2px solid #8A23DC;
+}
+
+/* Nút "Chọn Folder Ảnh" */
+QPushButton#uploadButton {
+    background-color: transparent;
+    border: 2px dashed #D0D0D0;
+    border-radius: 15px;
+    color: #5A567D;
+    font-size: 11pt;
+    font-weight: bold;
+    padding: 25px;
+    margin-top: 5px;
+}
+
+QPushButton#uploadButton:hover {
+    border: 2px dashed #8A23DC;
+    color: #8A23DC;
+}
+
+/* Gạch ngang phân cách */
+QFrame#separator {
+    background-color: #E0E0E0;
+    height: 1px;
+    border: none;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/* ========================================================================
+   PANEL BÊN PHẢI (CONTROLS)
+   ========================================================================= */
+
+/* Nút Train & Test */
+QToolButton#trainButton {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0,
+                                      stop: 0 #8A23DC, stop: 1 #6023DC);
+    color: #FFFFFF;
+    font-size: 12pt;
+    font-weight: bold;
+    min-height: 140px;
+    border: none;
+    border-radius: 20px;
+    padding: 20px 15px;
+}
+QToolButton#trainButton:hover {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0,
+                                      stop: 0 #9A33EC, stop: 1 #7033EC);
+}
+QToolButton#testButton {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0,
+                                      stop: 0 #E61E7C, stop: 1 #E61E4A);
+    color: #FFFFFF;
+    font-size: 12pt;
+    font-weight: bold;
+    min-height: 140px;
+    border: none;
+    border-radius: 20px;
+    padding: 20px 15px;
+}
+QToolButton#testButton:hover {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 0,
+                                      stop: 0 #F62E8C, stop: 1 #F62E5A);
+}
+QToolButton::text-label {
+    color: white;
+    text-align: center;
+}
+
+/* --- Giao diện "Sẵn sàng" (Cái não) --- */
+QLabel#idleIcon {
+    font-size: 60pt;
+    color: #8A23DC;
+    padding-bottom: 10px;
+}
+QLabel#statusTextMain {
+    color: #364153;
+    font-size: 14pt;
+    font-weight: bold;
+    padding: 0px;
+}
+QLabel#statusTextSub {
+    color: #777777;
+    font-size: 11pt;
+    font-weight: normal;
+    padding: 0px;
+}
+
+/* --- Giao diện "Webcam" --- */
+
+/* Cửa sổ hiển thị webcam */
+QLabel#webcam_display {
+    background-color: #000000; /* Nền đen */
+    border-radius: 15px;
+    color: #FFFFFF; /* Màu chữ "Đang khởi động..." */
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+/* Thẻ "Kết Quả Nhận Diện" */
+QGroupBox#resultCard {
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    padding-top: 15px; /* Giảm padding trên */
+    margin-bottom: 5px; /* Giảm lề dưới */
+}
+QGroupBox#resultCard::title {
+    color: #8A23DC; /* Màu tím */
+    font-size: 11pt;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+/* Thẻ "Hướng Dẫn Sử Dụng" */
+QGroupBox#guideCard {
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    padding-top: 15px;
+    margin-top: 5px; /* Giảm lề trên */
+}
+QGroupBox#guideCard::title {
+    color: #364153; /* Màu xám đậm */
+    font-size: 11pt;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+/* Icon "Người" trong thẻ Kết Quả */
+QLabel#resultIcon {
+    font-size: 50pt;
+    color: #C3BDE5; /* Màu tím nhạt */
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
+/* Chữ "Không phát hiện..." */
+QLabel#resultTextMain {
+    color: #364153;
+    font-size: 11pt;
+    font-weight: bold;
+}
+QLabel#resultTextSub {
+    color: #777777;
+    font-size: 10pt;
+}
+
+/* Các mục "Hướng Dẫn" (sử dụng class) */
+QLabel[class="guideItem"] {
+    color: #0078D4; /* Màu xanh dương */
+    font-size: 10pt;
+    padding: 4px 0px 4px 15px; /* Căn lề trái */
+    background-color: transparent;
+}
+
+
+/* ========================================================================
+   QSCROLLBAR (Thanh cuộn)
+   ========================================================================= */
+QScrollBar:vertical {
+    border: none;
+    background: #F0F0F0;
+    width: 10px;
+    margin: 0px 0px 0px 0px;
+}
+QScrollBar::handle:vertical {
+    background: #C0C0C0;
+    min-height: 20px;
+    border-radius: 5px;
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    border: none;
+    background: none;
+}
+QScrollBar:horizontal {
+    border: none;
+    background: #F0F0F0;
+    height: 10px;
+    margin: 0px 0px 0px 0px;
+}
+QScrollBar::handle:horizontal {
+    background: #C0C0C0;
+    min-width: 20px;
+    border-radius: 5px;
+}
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+    border: none;
+    background: none;
+}
