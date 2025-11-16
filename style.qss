@@ -141,6 +141,15 @@ QToolButton::text-label {
 }
 
 /* --- Giao diện "Sẵn sàng" (Cái não) --- */
+/* === SỬA ĐỔI Ở ĐÂY === */
+/* Áp dụng nền trắng cho cả StackWidget và các trang con (QWidget) trực tiếp của nó */
+QStackedWidget#mainStack, QStackedWidget#mainStack > QWidget {
+    background-color: #FFFFFF;
+    /* Thêm bo tròn 15px cho nó đẹp và khớp với các thẻ khác */
+    border-radius: 15px;
+}
+/* === KẾT THÚC SỬA ĐỔI === */
+
 QLabel#idleIcon {
     font-size: 60pt;
     color: #8A23DC;
@@ -174,11 +183,11 @@ QLabel#webcam_display {
 QGroupBox#resultCard {
     background-color: #FFFFFF;
     border-radius: 15px;
-    padding-top: 15px; /* Giảm padding trên */
-    margin-bottom: 5px; /* Giảm lề dưới */
+    padding-top: 15px;
+    margin-bottom: 5px;
 }
 QGroupBox#resultCard::title {
-    color: #8A23DC; /* Màu tím */
+    color: #8A23DC;
     font-size: 11pt;
     font-weight: bold;
     padding-top: 10px;
@@ -190,10 +199,10 @@ QGroupBox#guideCard {
     background-color: #FFFFFF;
     border-radius: 15px;
     padding-top: 15px;
-    margin-top: 5px; /* Giảm lề trên */
+    margin-top: 5px;
 }
 QGroupBox#guideCard::title {
-    color: #364153; /* Màu xám đậm */
+    color: #364153;
     font-size: 11pt;
     font-weight: bold;
     padding-top: 10px;
@@ -203,7 +212,7 @@ QGroupBox#guideCard::title {
 /* Icon "Người" trong thẻ Kết Quả */
 QLabel#resultIcon {
     font-size: 50pt;
-    color: #C3BDE5; /* Màu tím nhạt */
+    color: #C3BDE5;
     padding-top: 15px;
     padding-bottom: 10px;
 }
@@ -221,43 +230,172 @@ QLabel#resultTextSub {
 
 /* Các mục "Hướng Dẫn" (sử dụng class) */
 QLabel[class="guideItem"] {
-    color: #0078D4; /* Màu xanh dương */
+    color: #0078D4;
     font-size: 10pt;
-    padding: 4px 0px 4px 15px; /* Căn lề trái */
+    padding: 4px 0px 4px 15px;
     background-color: transparent;
+}
+
+/* ========================================================================
+   PHẦN MỚI: TRAINING LOADING & KẾT QUẢ (PHẦN CẢI TIẾN)
+   ========================================================================= */
+
+/* --- Giao diện "Loading" --- */
+QLabel#loadingIcon {
+    padding-bottom: 15px;
+}
+
+QLabel#loadingTextMain {
+    color: #8A23DC; /* Màu tím */
+    font-size: 14pt;
+    font-weight: bold;
+    padding: 0px;
+}
+QLabel#loadingTextSub {
+    color: #777777;
+    font-size: 11pt;
+    font-weight: normal;
+    padding: 0px;
+}
+
+/* --- Thẻ "Kết Quả Training" --- */
+QGroupBox#resultsCard {
+    background-color: #F9F8FF; /* Nền tím RẤT nhạt */
+    border: 1px solid #E9D4FF; /* Viền tím nhạt */
+    margin-top: 20px;
+}
+QGroupBox#resultsCard::title {
+    color: #364153;
+    font-size: 13pt;
+    font-weight: bold;
+    padding-left: 30px;
+    padding-top: 20px;
+}
+
+/* Groupbox trong suốt (chứa các thẻ/biểu đồ) */
+QGroupBox#transparentGroup {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+QGroupBox#transparentGroup::title {
+    color: #364153;
+    font-size: 11pt;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-top: 15px;
+}
+
+/* 4 Thẻ chỉ số (Stat Box) */
+QGroupBox[objectName^="statBox"] { /* Style chung cho 4 thẻ */
+    border-radius: 15px;
+    min-height: 100px;
+}
+QGroupBox[objectName^="statBox"]::title { /* Tiêu đề (Accuracy,...) */
+    color: #5A567D;
+    font-size: 10pt;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-left: 15px;
+}
+QLabel#statValue { /* Giá trị (96.5%) */
+    color: #364153;
+    font-size: 24pt;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+/* Màu nền riêng cho từng thẻ */
+QGroupBox#statBoxGreen {
+    background-color: #E6FFF9;
+    border: 1px solid #00B894;
+}
+QGroupBox#statBoxBlue {
+    background-color: #EBF5FF;
+    border: 1px solid #0078D4;
+}
+QGroupBox#statBoxRed {
+    background-color: #FFF4F4;
+    border: 1px solid #E61E4A;
+}
+QGroupBox#statBoxYellow {
+    background-color: #FFFBE6;
+    border: 1px solid #F39C12;
+}
+
+/* Placeholder cho biểu đồ */
+QLabel#chartPlaceholder {
+    background-color: #FFFFFF;
+    border: 1px dashed #C3BDE5;
+    border-radius: 15px;
+    color: #777777;
+}
+
+/* Thanh trạng thái thành công */
+QFrame#trainingSuccessBar {
+    background-color: #E6FFF9;
+    border: 1px solid #00B894;
+    border-radius: 15px;
+    padding: 10px 15px;
+    margin-top: 15px;
+}
+QLabel#successIcon {
+    font-size: 16pt;
+    padding-right: 10px;
+}
+QLabel#successText {
+    color: #00B894;
+    font-size: 10pt;
+    font-weight: bold;
 }
 
 
 /* ========================================================================
    QSCROLLBAR (Thanh cuộn)
    ========================================================================= */
-QScrollBar:vertical {
+/* Style cho thanh cuộn bên trong QGroupBox (nền trắng) */
+QScrollArea#resultsScrollArea {
+    border: none;
+    background-color: transparent;
+}
+/* --- SỬA LỖI ĐÚNG LÀ ĐÂY --- */
+/* Dòng này đảm bảo nội dung bên trong scroll area (chứa nút, stack,...)
+   có nền trong suốt, để lộ ra nền trắng của QGroupBox */
+QWidget#scrollContent {
+    background-color: transparent;
+}
+
+
+/* Style cho thanh cuộn chung (bên ngoài) */
+/* (Những style này áp dụng nếu QGroupBox có thanh cuộn) */
+QGroupBox QScrollBar:vertical {
     border: none;
     background: #F0F0F0;
     width: 10px;
     margin: 0px 0px 0px 0px;
 }
-QScrollBar::handle:vertical {
+QGroupBox QScrollBar::handle:vertical {
     background: #C0C0C0;
     min-height: 20px;
     border-radius: 5px;
 }
-QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+QGroupBox QScrollBar::add-line:vertical, QGroupBox QScrollBar::sub-line:vertical {
     border: none;
     background: none;
 }
-QScrollBar:horizontal {
+QGroupBox QScrollBar:horizontal {
     border: none;
     background: #F0F0F0;
     height: 10px;
     margin: 0px 0px 0px 0px;
 }
-QScrollBar::handle:horizontal {
+QGroupBox QScrollBar::handle:horizontal {
     background: #C0C0C0;
     min-width: 20px;
     border-radius: 5px;
 }
-QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+QGroupBox QScrollBar::add-line:horizontal, QGroupBox QScrollBar::sub-line:horizontal {
     border: none;
     background: none;
 }
